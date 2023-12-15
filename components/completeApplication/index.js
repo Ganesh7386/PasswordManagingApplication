@@ -31,7 +31,10 @@ class CompleteApplication extends Component {
       eachCred => eachCred.id !== id,
     )
 
-    this.setState({allCredList: filteredListOfCredentials})
+    this.setState({
+      allCredList: filteredListOfCredentials,
+      filteredList: filteredListOfCredentials,
+    })
   }
 
   searchCredential = text => {
@@ -42,6 +45,17 @@ class CompleteApplication extends Component {
     )
     this.setState({filteredList: filteredBasedOnSearch})
   }
+
+  renderNoPasswordsUI = () => (
+    <div>
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
+        alt="no passwords"
+        style={{height: '80px', width: '80px'}}
+      />
+      <p>No Passwords</p>
+    </div>
+  )
 
   render() {
     const {allCredList, filteredList} = this.state
@@ -56,15 +70,13 @@ class CompleteApplication extends Component {
         <FormHandlingAddition addACred={this.addACredential} />
         <div>
           <h1>Showing all Credentials</h1>
-          <ul>
-            <DisplayingAllCreds
-              searchCredential={this.searchCredential}
-              count={count}
-              deleteCredential={this.deleteCredential}
-              allCredsList={allCredList}
-              filteredList={filteredList}
-            />
-          </ul>
+          <DisplayingAllCreds
+            searchCredential={this.searchCredential}
+            count={count}
+            deleteCredential={this.deleteCredential}
+            allCredsList={allCredList}
+            filteredList={filteredList}
+          />
         </div>
       </div>
     )

@@ -21,6 +21,16 @@ function DisplayingAllCreds({
     searchCredential(event.target.value)
     console.log(event.target.value)
   }
+  const renderNoPasswordsUI = () => (
+    <div>
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
+        alt="no passwords"
+        style={{height: '80px', width: '80px'}}
+      />
+      <p>No Passwords</p>
+    </div>
+  )
 
   return (
     <div className="displayingAllCredsContainer">
@@ -34,9 +44,8 @@ function DisplayingAllCreds({
         }}
       >
         <div className="passwordCountContainer">
-          <p style={{color: 'white'}}>
-            Your Passwords <span>{count}</span>
-          </p>
+          <h1 style={{color: 'white'}}>Your Passwords</h1>
+          <p>{count}</p>
         </div>
         <div className="searchPartContainer">
           <div
@@ -54,32 +63,38 @@ function DisplayingAllCreds({
             />
           </div>
           <input
-            type="search"
             value={searchValue}
+            type="search"
             onChange={handleSearchingMethod}
             style={{height: '30px'}}
           />
         </div>
       </div>
       <div className="showingPasswordContainer">
-        <label htmlFor="checkboxForShowing">Show Passwords</label>
         <input
           id="checkboxForShowing"
           type="checkbox"
           checked={isChecked}
           onChange={handleCheckEvent}
         />
+        <label htmlFor="checkboxForShowing">Show passwords</label>
       </div>
-      <ul style={{listStyleType: 'none'}}>
-        {filteredList.map(eachCred => (
-          <EachCredential
-            deleteCredential={deleteCredential}
-            isChecked={isChecked}
-            eachCred={eachCred}
-            key={eachCred.id}
-          />
-        ))}
-      </ul>
+      <>
+        {count === 0 ? (
+          renderNoPasswordsUI()
+        ) : (
+          <ul style={{listStyleType: 'none'}}>
+            {filteredList.map(eachCred => (
+              <EachCredential
+                deleteCredential={deleteCredential}
+                isChecked={isChecked}
+                eachCred={eachCred}
+                key={eachCred.id}
+              />
+            ))}
+          </ul>
+        )}
+      </>
     </div>
   )
 }
