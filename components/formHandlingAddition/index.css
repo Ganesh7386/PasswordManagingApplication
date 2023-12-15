@@ -1,0 +1,23 @@
+.formAddingCredentialsContainer {
+  background-color: #5763a5;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 300px;
+}
+
+.formTakingInputContainer {
+  background-color: #454f84;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.eachInputContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

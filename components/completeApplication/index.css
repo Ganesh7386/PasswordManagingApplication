@@ -1,0 +1,8 @@
+.over-all-application-bg-container {
+  background-color: #9ba9eb;
+  padding: 30px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

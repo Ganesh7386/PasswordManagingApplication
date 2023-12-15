@@ -1,0 +1,9 @@
+.displayingAllCredsContainer {
+  background-color: #5763a5;
+  min-height: 150px;
+  padding: 20px;
+}
+
+.searchPartContainer {
+  display: flex;
+}
